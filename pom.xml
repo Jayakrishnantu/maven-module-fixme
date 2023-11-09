@@ -22,7 +22,7 @@
         <revision>1.0-SNAPSHOT</revision>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>11</java.version>
+        <java.version>17</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
     </properties>
@@ -32,8 +32,8 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>flatten-maven-plugin</artifactId>
+                <version>1.5.0</version>
                 <configuration>
-                    <flattenMode>bom</flattenMode>
                 </configuration>
                 <executions>
                     <!-- enable flattening -->
@@ -55,10 +55,12 @@
                 </executions>
             </plugin>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
+                <version>3.3.0</version>
                 <executions>
                     <execution>
-                        <id>enforce-env-requirements</id>
+                        <id>enfore-env-requirements</id>
                         <goals>
                             <goal>enforce</goal>
                         </goals>
@@ -68,7 +70,7 @@
                                     <version>[11,)</version>
                                 </requireJavaVersion>
                                 <requireMavenVersion>
-                                    <version>[3.5,)</version>
+                                    <version>[3.9,)</version>
                                 </requireMavenVersion>
                             </rules>
                         </configuration>
